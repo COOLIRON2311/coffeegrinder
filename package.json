@@ -1,0 +1,24 @@
+{
+  "name": "coffeegrinder",
+  "version": "1.0.0",
+  "description": "Yet another frontend for Compiler Explorer",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "cleanup": "rm -r .parcel-cache && rm -r dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "COOLIRON2311",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.52.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "parcel": "^2.10.2",
+    "process": "^0.11.10"
+  }
+}
