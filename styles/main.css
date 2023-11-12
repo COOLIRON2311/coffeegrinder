@@ -1,0 +1,24 @@
+body {
+    background-color: #282828;
+}
+
+.title {
+    display: flex;
+    background-color: #f7bf50;
+}
+
+.logo {
+    width: 5%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    margin-left: 1%;
+}
+
+.title-text {
+    font-family: 'Lato', serif;
+    font-style: italic;
+    font-size: 48;
+    margin-top: 1%;
+    margin-bottom: 0.5%;
+    margin-left: 1.5%;
+}
