@@ -18,11 +18,11 @@ export function Editor(props) {
     }, [code]);
 
     return (
-        <textarea>
+        <textarea
             className="panel"
             rows={35}
             cols={80}
             onChange={e => setCode(e.target.value)}
-        </textarea>
+        />
     );
 }
