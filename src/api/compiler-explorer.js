@@ -42,7 +42,7 @@ export class CompilerExplorer {
     }
 
     /**
-     * Compiler `code` written in `lang` using the `compiler`
+     * Compile `code` written in `lang` using the `compiler`
      * @param {string} code
      * @param {string} compiler
      * @param {string} lang
