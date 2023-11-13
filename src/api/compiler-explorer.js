@@ -17,7 +17,8 @@ export class CompilerExplorer {
                     const [v, k] = line.split(/\|/).map(w => w.trim());
                     pairs.set(k, v);
                 });
-                return pairs;
+                pairs.delete("Name");
+                return [...pairs];
             });
         });
     }
@@ -34,7 +35,8 @@ export class CompilerExplorer {
                     const [v, k] = line.split(/\|/).map(w => w.trim());
                     pairs.set(k, v);
                 });
-                return pairs;
+                pairs.delete("Name");
+                return [...pairs];
             });
         });
     }
