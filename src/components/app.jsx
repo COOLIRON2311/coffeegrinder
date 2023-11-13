@@ -64,7 +64,7 @@ export function App() {
             <div className="panel-div">
                 <Select id="language" selection={langs} action={setLanguageAction} />
                 <br />
-                <Editor width="80vh" height="95%"
+                <Editor width="80vh" height="96%"
                     language={language}
                     onChange={handleEditorChange}
                     theme="vs-dark"
