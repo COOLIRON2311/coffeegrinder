@@ -1,6 +1,6 @@
 import { CompilerExplorer } from "../api/compiler-explorer";
-import React, { useEffect, useRef, useState } from "react";
-import { Editor } from "./editor";
+import Editor from '@monaco-editor/react';
+import React, { useEffect, useState } from "react";
 import { Viewer } from "./viewer";
 import stripAnsi from "strip-ansi";
 import { Select } from "./select";
@@ -24,6 +24,10 @@ export function App() {
         setCompiler(value);
     };
 
+    const handleEditorChange = (value, _) => {
+        setCode(value);
+    };
+
     useEffect(() => {
         ce.languages().then(r => {
             setLangs(r);
@@ -33,6 +37,7 @@ export function App() {
     useEffect(() => {
         if (!language)
             return;
+    
         ce.compilers(language).then(r =>
             setComps(r)
         );
@@ -51,15 +56,19 @@ export function App() {
         }, 1000);
 
         return () => clearTimeout(delayDebounceFn);
-    }, [code]);
+    }, [code, compiler]);
 
 
     return (
         <div className="panels-container">
             <div className="panel-div">
-                <Select id="language" selection={langs} action={setLanguageAction}/>
+                <Select id="language" selection={langs} action={setLanguageAction} />
                 <br />
-                <Editor setCode={setCode} />
+                <Editor width="80vh" height="95%"
+                    language={language}
+                    onChange={handleEditorChange}
+                    theme="vs-dark"
+                />
             </div>
             <div className="panel-div">
                 <Select id="compiler" selection={comps} action={setCompilerAction} />
