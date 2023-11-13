@@ -37,7 +37,7 @@ export function App() {
     useEffect(() => {
         if (!language)
             return;
-    
+
         ce.compilers(language).then(r =>
             setComps(r)
         );
