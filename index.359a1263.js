@@ -10,7 +10,7 @@ console.error(e)}}(),l=(f=i("gAtBI")).createRoot,f.hydrateRoot;class d{#e;constr
      * Get a list of `language's` available compilers
      * @param {string} lang
      */compilers(e){return fetch(`${this.#e}/api/compilers/${e}`).then(e=>{let t=new Map;return e.text().then(e=>(e.split(/\n/).forEach(e=>{let[n,r]=e.split(/\|/).map(e=>e.trim());t.set(r,n)}),t.delete("Name"),[...t]))})}/**
-     * Compiler `code` written in `lang` using the `compiler`
+     * Compile `code` written in `lang` using the `compiler`
      * @param {string} code
      * @param {string} compiler
      * @param {string} lang
