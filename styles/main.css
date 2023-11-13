@@ -23,15 +23,18 @@ body {
     margin-left: 1.5%;
 }
 
-.panel-container {
+.panels-container {
     display: flex;
     justify-content: center;
     margin-top: 3%;
 }
 
+.panel-div {
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+}
+
 .panel {
     background-color: #1e1e1e;
     color: white;
-    margin-left: 0.5%;
-    margin-right: 0.5%;
 }
