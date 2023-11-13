@@ -1,5 +1,5 @@
 import { CompilerExplorer } from "../api/compiler-explorer";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Editor } from "./editor";
 import { Viewer } from "./viewer";
 import stripAnsi from "strip-ansi";
@@ -14,10 +14,17 @@ export function App() {
     const [langs, setLangs] = useState([]);
     const [comps, setComps] = useState([]);
 
-    useEffect(() => {
-        if (!langs)
-            return;
+    const setLanguageAction = (value) => {
+        localStorage.setItem("language", value);
+        setLanguage(value);
+    };
 
+    const setCompilerAction = (value) => {
+        localStorage.setItem("compiler", value);
+        setCompiler(value);
+    };
+
+    useEffect(() => {
         ce.languages().then(r => {
             setLangs(r);
         });
@@ -50,12 +57,12 @@ export function App() {
     return (
         <div className="panels-container">
             <div className="panel-div">
-                <Select id="language" selection={langs} action={setLanguage} />
+                <Select id="language" selection={langs} action={setLanguageAction}/>
                 <br />
                 <Editor setCode={setCode} />
             </div>
             <div className="panel-div">
-                <Select id="compiler" selection={comps} action={setCompiler} />
+                <Select id="compiler" selection={comps} action={setCompilerAction} />
                 <br />
                 <Viewer bytecode={bytecode} />
             </div>

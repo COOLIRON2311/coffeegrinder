@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 /**
  *
  * @param {Object} props
@@ -6,9 +8,17 @@
  * @param {Function} props.action
  * @returns
  */
-export function Select({ id, selection, action: setter }) {
+export function Select({ id, selection, action }) {
+
+    useEffect(() => {
+        const value = localStorage.getItem(id);
+        if (value !== null)
+            action(value);
+        // TODO: fix change not being rendered
+    }, []);
+
     return (
-        <select id={id} onChange={e => setter(e.target.value)}>
+        <select id={id} onChange={e => action(e.target.value)}>
             {
                 selection.sort(comparator).map(i =>
                     <option key={i[1]} value={i[1]}>{i[0]}</option>
