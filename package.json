@@ -12,7 +12,8 @@
   "license": "MIT",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "strip-ansi": "^7.1.0"
   },
   "devDependencies": {
     "@parcel/babel-preset-env": "^2.10.2",

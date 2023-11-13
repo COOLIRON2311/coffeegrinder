@@ -8,10 +8,11 @@ export function Viewer({bytecode}) {
 
     return (
         <textarea
+            id="viewer"
             className="panel"
             rows={35}
             cols={80}
-            readOnly="true"
+            readOnly={true}
             value={bytecode}
         />
     );
