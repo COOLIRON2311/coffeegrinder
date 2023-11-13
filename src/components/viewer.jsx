@@ -1,4 +1,10 @@
-export function Viewer(props) {
+/**
+ *
+ * @param {Object} props
+ * @param {string} props.bytecode
+ * @returns
+ */
+export function Viewer({bytecode}) {
 
     return (
         <textarea
@@ -6,6 +12,7 @@ export function Viewer(props) {
             rows={35}
             cols={80}
             readOnly="true"
+            value={bytecode}
         />
     );
 }
