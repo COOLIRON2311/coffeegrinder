@@ -9,8 +9,12 @@ export function App() {
     const ce = new CompilerExplorer();
     const [code, setCode] = useState("");
     const [bytecode, setBytecode] = useState("");
-    const [language, setLanguage] = useState("");
-    const [compiler, setCompiler] = useState("");
+    const [language, setLanguage] = useState(() => {
+        return localStorage.getItem("language") || "";
+    });
+    const [compiler, setCompiler] = useState(() => {
+        return localStorage.getItem("compiler") || "";
+    });
     const [langs, setLangs] = useState([]);
     const [comps, setComps] = useState([]);
 
@@ -62,7 +66,7 @@ export function App() {
     return (
         <div className="panels-container">
             <div className="panel-div">
-                <Select id="language" selection={langs} action={setLanguageAction} />
+                <Select id="language" selection={langs} action={setLanguageAction} selected={language} />
                 <br />
                 <Editor width="80vh" height="96%"
                     language={language}
@@ -71,7 +75,7 @@ export function App() {
                 />
             </div>
             <div className="panel-div">
-                <Select id="compiler" selection={comps} action={setCompilerAction} />
+                <Select id="compiler" selection={comps} action={setCompilerAction} selected={compiler} />
                 <br />
                 <Viewer bytecode={bytecode} />
             </div>
